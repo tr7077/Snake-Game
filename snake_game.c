@@ -7,8 +7,8 @@
 #include <conio.h>
 #include <time.h>
 
-#define height 40
-#define width 60
+#define height 30
+#define width 80
 int gameover;
 int score;
 int food_x, food_y;
