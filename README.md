@@ -1,3 +1,3 @@
 # Snake-Game
-Nothing special here
-Just the traditional snake game 
+Nothing special here,
+just the traditional snake game 
