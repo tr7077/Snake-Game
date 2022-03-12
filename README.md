@@ -1,4 +1,6 @@
 # Snake-Game
-Nothing special here,
- just the traditional snake game in C
-'\n'Try changing height and width
+Nothing special here
+
+Just the traditional snake game in C
+
+Try changing height and width
