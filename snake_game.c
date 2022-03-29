@@ -1,6 +1,6 @@
 /*-----------------------------------------------------------------------------------------------------
 - I am using some functions and a library which they only run on ms-dos systems, 
-  so if you run this on linux or mac-os you'll probably get some errors
+  so if you run this on linux or mac-os you'll probably get some errors __> [system("cls"), getch(), conio.h]
 - try it with lowercase i was bored to writte more code just for uppercase 
 - also only w a s d keys work because i was bored again to writte more code to get the arrows to work 
 - have fun with my billion-dollar project but please don't steal it
@@ -39,7 +39,7 @@ int main()
         user_input = 'N';
         direction = 'N';
         tail_len = 0;
-        
+
         system("cls");
         printf("Press ANY KEY to start...");
         getch();
@@ -68,7 +68,7 @@ int main()
 
         sleep(2);
         fflush(stdin);
-        printf("Score = %d\n--------------------------\n", score);
+        printf("Score: %d\n--------------------------\n", score);
         printf("Press ESC to exit\nPress SPACE to play again\n");
         do{
             sel = getch(); 
@@ -80,7 +80,7 @@ int main()
 
 void printgraphics(void){
     system("cls");
-    printf("SCORE = %d                         Press ESC to reset or quit\n", score);
+    printf("SCORE: %d | Press ESC to reset or quit\n", score);
     for(int y=1; y<=height; y++){
         for(int x=1; x<=width; x++){
             if(y==1 || y==height || x==1 || x==width){
