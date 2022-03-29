@@ -1,20 +1,26 @@
-/*try it with lowercase i was bored to writte more code just for uppercase*/
-/*also only w a s d keys work because i was bored again to writte more code to get the arrows to work*/
-/*have fun with my billion-dollar project but please don't steal it*/
+/*-----------------------------------------------------------------------------------------------------
+- I am using some functions and a library which they only run on ms-dos systems, 
+  so if you run this on linux or mac-os you'll probably get some errors
+- try it with lowercase i was bored to writte more code just for uppercase 
+- also only w a s d keys work because i was bored again to writte more code to get the arrows to work 
+- have fun with my billion-dollar project but please don't steal it
+-----------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 #include <time.h>
+#include <unistd.h>
 
-#define height 30
-#define width 80
+#define height 40
+#define width 100
 int gameover;
 int score;
 int food_x, food_y;
-int snake_x; snake_y;
+int snake_x, snake_y;
 char user_input;
 char direction;
+char sel;
 int tail_x[(width-2)*(height-2)] = {0};
 int tail_y[(width-2)*(height-2)] = {0};
 int tail_len;
@@ -33,9 +39,9 @@ int main()
         user_input = 'N';
         direction = 'N';
         tail_len = 0;
-
+        
         system("cls");
-        printf("Press any key to start...");
+        printf("Press ANY KEY to start...");
         getch();
 
         snake_x = width / 2;
@@ -49,7 +55,6 @@ int main()
             food_y = (rand()%(height-2))+2;
         }while(food_y == snake_y);
         //----------------------------------------------------------------------|
-
         while(!gameover){
 
             printgraphics();
@@ -59,12 +64,16 @@ int main()
             logic();
 
         }
-        printf("GAMEOVER\n");
+        printf("..GAME~OVER..\n");
 
         sleep(2);
-        printf("Press ESC to exit\nPress ANY OTHER key to play again\n");
         fflush(stdin);
-    }while(getch() != 27);
+        printf("Score = %d\n--------------------------\n", score);
+        printf("Press ESC to exit\nPress SPACE to play again\n");
+        do{
+            sel = getch(); 
+        }while(sel != 27 && sel != 32);
+    }while(sel == 32);
 
     return 0;
 }
@@ -176,8 +185,14 @@ void logic(void){
             }
             break;
     }
-    if(snake_y==1 || snake_y==height || snake_x==1 || snake_x==width){
+    if(snake_y==1 || snake_y==height){ // || snake_x==1 || snake_x==width){
         gameover = 1;
+    }
+    if(snake_x==1){
+        snake_x = width-1;
+    }
+    if(snake_x==width){
+        snake_x = 2;
     }
     if(snake_x==food_x && snake_y==food_y){
         score++;
@@ -200,6 +215,6 @@ void logic(void){
         sleep(2);
         printf("\n\t\tYOU BEAT THE SYSTEM!\n");
         sleep(2);
-        exit(0);
+        gameover = 1;
     }
 }
