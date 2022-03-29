@@ -3,6 +3,7 @@
   so if you run this on linux or mac-os you'll probably get some errors __> [system("cls"), getch(), conio.h]
 - try it with lowercase i was bored to writte more code just for uppercase 
 - also only w a s d keys work because i was bored again to writte more code to get the arrows to work 
+- left and right walls are not walls!
 - have fun with my billion-dollar project but please don't steal it
 -----------------------------------------------------------------------------------------------------*/
 
