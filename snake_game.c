@@ -1,10 +1,9 @@
 /*-----------------------------------------------------------------------------------------------------
-- I am using some functions and a library which they only run on ms-dos systems, 
-  so if you run this on linux or mac-os you'll probably get some errors __> [system("cls"), getch(), conio.h]
-- try it with lowercase i was bored to writte more code just for uppercase 
-- also only w a s d keys work because i was bored again to writte more code to get the arrows to work 
-- left and right walls are not walls!
-- have fun with my billion-dollar project but please don't steal it
+- some functions and a library only run on ms-dos systems, 
+  on linux and mac-os you'll get errors __> [system("cls"), getch(), conio.h]
+- lowercase only
+- w a s d keys only
+- left and right walls are portals
 -----------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
@@ -80,7 +79,7 @@ int main()
 }
 
 void printgraphics(void){
-    system("cls");
+    printf("\033[H");
     printf("SCORE: %d | Press ESC to reset or quit\n", score);
     for(int y=1; y<=height; y++){
         for(int x=1; x<=width; x++){
@@ -168,23 +167,6 @@ void logic(void){
             else{
                 snake_x--;
             }
-            break;
-        default:
-            switch(direction){
-                case 'w':
-                    snake_y--;
-                    break;
-                case 's':
-                    snake_y++;
-                    break;
-                case 'a':
-                    snake_x--;
-                    break;
-                case 'd':
-                    snake_x++;
-                    break;
-            }
-            break;
     }
     if(snake_y==1 || snake_y==height){ // || snake_x==1 || snake_x==width){
         gameover = 1;
