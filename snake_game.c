@@ -1,9 +1,8 @@
 /*-----------------------------------------------------------------------------------------------------
-- some functions and a library only run on ms-dos systems, 
-  on linux and mac-os you'll get errors __> [system("cls"), getch(), conio.h]
-- lowercase only
+- conio.h only on windows
+- lowercase input only
 - w a s d keys only
-- left and right walls are portals
+- left and right walls are connected portals
 -----------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
